@@ -1,0 +1,1 @@
+document.getElementById('export').onclick = function() { chrome.bookmarks.getTree(function(tree) { let bookmarks = JSON.stringify(tree); let blob = new Blob([bookmarks], {type: 'application/json'}); let url = URL.createObjectURL(blob); let a = document.createElement('a'); a.href = url; a.download = 'bookmarks.json'; a.click(); }); };
